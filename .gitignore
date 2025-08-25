@@ -124,8 +124,3 @@ Thumbs.db
 *.tmp
 *.temp
 screen.png
-
-# Template files
-templates/
-
-ins.txt
