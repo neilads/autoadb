@@ -45,7 +45,12 @@ def create_account_async(message):
         result = automation.run_automation_process()
         
         if result and isinstance(result, dict) and result.get('success'):
-            account_info = f"TK: {result.get('email')}\nMK: {result.get('password')}\nLink OTP: https://api.taphoaneil.com/get-otp?to={result.get('email')}\nDate: {datetime.now().strftime('%H:%M %d/%m/%Y')}"
+            account_info = (
+                f"*TK:* `{result.get('email')}`\n\n"
+                f"*MK:* `{result.get('password')}`\n\n"
+                f"Link OTP: https://api.taphoaneil.com/get-otp?to={result.get('email')}\n\n"
+                f"Date: {datetime.now().strftime('%H:%M %d/%m/%Y')}"
+            )
             bot.send_message(message.chat.id, account_info, parse_mode='Markdown')
             logger.info(f"✅ {user_id} - {result.get('email')}")
         else:
