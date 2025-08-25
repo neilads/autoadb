@@ -152,6 +152,10 @@ class InstagramAutomation:
         ### ĐÓNG VÀ XOÁ DỮ LIỆU INSTAGRAM TRƯỚC KHI CHẠY ###
         self.execute_adb_command("adb shell am force-stop com.instagram.android")
         self.execute_adb_command("adb shell pm clear com.instagram.android")
+        self.execute_adb_command("adb shell input keyevent 26")
+        self.execute_adb_command("adb shell input swipe 500 1800 500 200")
+        
+        return
 
         ### THAY ĐỔI IP ###
         if not self.initialize_session():
