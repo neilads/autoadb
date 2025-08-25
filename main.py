@@ -152,8 +152,6 @@ class InstagramAutomation:
         ### ĐÓNG VÀ XOÁ DỮ LIỆU INSTAGRAM TRƯỚC KHI CHẠY ###
         self.execute_adb_command("adb shell am force-stop com.instagram.android")
         self.execute_adb_command("adb shell pm clear com.instagram.android")
-        self.execute_adb_command("adb shell input keyevent 26")
-        self.execute_adb_command("adb shell input swipe 500 1800 500 200")
         
         ### THAY ĐỔI IP ###
         if not self.initialize_session():
@@ -232,8 +230,10 @@ class InstagramAutomation:
         match_and_click("templates/tiep.png", 0.8, 3)
 
         ### NHẤN VÀO TÔI ĐỒNG Ý ###
-        if not match_and_click("templates/yes.png", 0.8, 10):
+        if not match_and_click("templates/yes.png", 0.8, 15):
             return self.cleanup_and_exit("Không thể nhấn nút 'Tôi đồng ý'")
+        
+        time.sleep(10)
         
         ### XOÁ DỮ LIỆU INSTAGRAM ###
         self.cleanup_and_exit()
