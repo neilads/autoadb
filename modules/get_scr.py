@@ -16,6 +16,5 @@ def capture_screen():
         os.remove("screen.png")
         image = cv2.cvtColor(np.array(Image.open(BytesIO(img_bytes))), cv2.COLOR_RGB2BGR)
         return image
-    except Exception as e:
-        print(f"Lỗi khi chụp màn hình: {e}")
+    except Exception:
         return None

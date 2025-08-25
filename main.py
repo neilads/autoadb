@@ -170,7 +170,7 @@ class InstagramAutomation:
         ### MỞ ỨNG DỤNG INSTAGRAM ###
         if not self.execute_adb_command("adb shell monkey -p com.instagram.android -c android.intent.category.LAUNCHER 1"):
             return self.cleanup_and_exit("Không thể mở ứng dụng Instagram")
-        time.sleep(3)
+        time.sleep(5)
         
         ### NHẤN NÚT TẠO TÀI KHOẢN MỚI HOẶC BẮT ĐẦU ###
         if not match_and_click("templates/taotaikhoan.png", 0.8, 3):
@@ -193,8 +193,8 @@ class InstagramAutomation:
         
         ### ẤN TIẾP TỤC ###
         if not match_and_click("templates/tiep.png", 0.8, 3):
-            return self.cleanup_and_exit("Không thể nhấn nút 'tiếp'")
-
+            return self.cleanup_and_exit("Không thể nhấn nút 'Tiếp'")
+        
         ### LẤY MÃ OTP TỪ API ###
         otp_code = self.get_otp_code(self.email)
         if not otp_code:
@@ -210,14 +210,15 @@ class InstagramAutomation:
 
         ### ẤN TIẾP TỤC ###
         if not match_and_click("templates/tiep.png", 0.8, 3):
-            return self.cleanup_and_exit("Không thể nhấn nút 'tiếp'")
+            return self.cleanup_and_exit("Không thể nhấn nút 'Tiếp'")
 
-        ### NHẤN VÀO "lưu", NẾU KHÔNG CÓ THÌ ẤN "lúc khác" ###
-        if not match_and_click("templates/luu.png", 0.8, 3):
-            match_and_click("templates/luc_khac.png", 0.8, 3)
+        ### NHẤN VÀO LƯU NẾU CÓ ###
+        match_and_click("templates/luu.png", 0.8, 3)
 
         ### NHẬP NĂM SINH ###
         self.input_date_of_birth()
+
+        time.sleep(2)
         
         ### TẠO TÊN VIỆT NAM RANDOM ###
         name = generate_vietnamese_name()
@@ -230,14 +231,12 @@ class InstagramAutomation:
 
         ### ẤN TIẾP TỤC ###
         if not match_and_click("templates/tiep.png", 0.8, 3):
-            return self.cleanup_and_exit("Không thể nhấn nút 'tiếp'")
+            return self.cleanup_and_exit("Không thể nhấn nút 'Tiếp'")
 
-        ### ẤN TIẾP TỤC ###
-        if not match_and_click("templates/tiep.png", 0.8, 3):
-            return self.cleanup_and_exit("Không thể nhấn nút 'tiếp'")
+        match_and_click("templates/tiep.png", 0.8, 3)
 
         ### NHẤN VÀO TÔI ĐỒNG Ý ###
-        if not match_and_click("templates/toidongy.png", 0.8, 10):
+        if not match_and_click("templates/yes.png", 0.8, 10):
             return self.cleanup_and_exit("Không thể nhấn nút 'Tôi đồng ý'")
 
         ### LƯU TÀI KHOẢN VÀO FILE TXT ###
