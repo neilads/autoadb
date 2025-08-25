@@ -159,6 +159,11 @@ class InstagramAutomation:
     ############################
 
     def run_automation_process(self):
+
+        ### ĐÓNG VÀ XOÁ DỮ LIỆU INSTAGRAM TRƯỚC KHI CHẠY ###
+        self.execute_adb_command("adb shell am force-stop com.instagram.android")
+        self.execute_adb_command("adb shell pm clear com.instagram.android")
+
         ### THAY ĐỔI IP ###
         if not self.initialize_session():
             logger.error("Không thể thay đổi IP. Bỏ qua bước này và tiếp tục quá trình đăng ký")
