@@ -75,17 +75,6 @@ class InstagramAutomation:
         password = f"{letters}{numbers}@"
         return password
     
-    ### LƯU TÀI KHOẢN VÀO FILE TXT ###
-    @staticmethod
-    def save_account_to_txt(email, password):
-        timestamp = time.strftime("%H:%M %d/%m")
-        otp_link = f"{OTP_API_BASE}?to={email}"
-        try:
-            with open(ACCOUNTS_FILE, 'a', encoding='utf-8') as f:
-                f.write(f"{email}|{password}|{otp_link}|{timestamp}\n")
-        except Exception as e:
-            logger.error(f"Không thể lưu tài khoản: {e}")
-    
     ### LẤY MÃ OTP TỪ API ###
     @staticmethod
     def get_otp_code(email):
@@ -243,9 +232,6 @@ class InstagramAutomation:
         ### NHẤN VÀO TÔI ĐỒNG Ý ###
         if not match_and_click("templates/yes.png", 0.8, 10):
             return self.cleanup_and_exit("Không thể nhấn nút 'Tôi đồng ý'")
-
-        ### LƯU TÀI KHOẢN VÀO FILE TXT ###
-        self.save_account_to_txt(self.email, self.password)
         
         ### XOÁ DỮ LIỆU INSTAGRAM ###
         self.cleanup_and_exit()
