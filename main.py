@@ -155,8 +155,6 @@ class InstagramAutomation:
         self.execute_adb_command("adb shell input keyevent 26")
         self.execute_adb_command("adb shell input swipe 500 1800 500 200")
         
-        return
-
         ### THAY ĐỔI IP ###
         if not self.initialize_session():
             logger.error("Không thể thay đổi IP. Bỏ qua bước này và tiếp tục quá trình đăng ký")
