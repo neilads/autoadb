@@ -251,7 +251,11 @@ class InstagramAutomation:
         self.cleanup_and_exit()
 
         logger.info("Đã tạo tài khoản thành công")
-        return True
+        return {
+            'success': True,
+            'email': self.email,
+            'password': self.password
+        }
 
     ###################################
     ### HOÀN THÀNH THAO TÁC ĐĂNG KÍ ###
@@ -260,10 +264,11 @@ class InstagramAutomation:
 def main():
     automation = InstagramAutomation()
     try:
-        success = automation.run_automation_process()
+        result = automation.run_automation_process()
         
-        if success:
+        if result and isinstance(result, dict) and result.get('success'):
             logger.info("Ứng dụng hoàn thành thành công")
+            logger.info(f"Email: {result.get('email')}")
         else:
             logger.error("Ứng dụng không thể hoàn thành")   
     except KeyboardInterrupt:
