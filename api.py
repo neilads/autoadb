@@ -15,8 +15,6 @@ app = Flask(__name__)
 # Biến toàn cục để theo dõi trạng thái
 is_running = False
 
-
-
 @app.route('/create-ins', methods=['POST'])
 def create_account():
     """API endpoint để tạo tài khoản Instagram - Trả về kết quả ngay lập tức"""
