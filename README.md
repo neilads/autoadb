@@ -2,7 +2,7 @@ Tools reg Instagram sử dụng Python và Android Debug Brige bằng cách so k
 
 ---
 
-Workflow:
+## Workflow:
 - Chụp ảnh màn hình thông qua ADB
 - So khớp với template đã tạo trước đó
 - Lấy toạ độ và thực hiện click
@@ -49,7 +49,9 @@ Workflow:
 
 **Thông tin thiết bị test:**
 - Hệ điều hành: Android 13
-- Thiết bị: Samsung Note 9
+- Thiết bị: Samsung Galaxy S9
+- Model: SM-G960F
+- Đẫ Root bằng Magisk
 - ROM: Custom ROM Pixel Experience
 
 > Đã kiểm thử toàn bộ workflow trên thiết bị này.
