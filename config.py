@@ -4,7 +4,7 @@ OTP_API_BASE = "https://api.taphoaneil.com/get-otp"
 SESSION_URL = "LINK-XOAY-PROXY"
 
 ### TELEGRAM BOT CONFIG ###
-TELEGRAM_BOT_TOKEN = "7322132037:AAGZDmEjPve2wi1LWIsIwDUYE3VqbZnQa64"
+TELEGRAM_BOT_TOKEN = "BOT_TOKEN"
 
 BOT_CONFIG = {
     'timeout': 10,
@@ -19,6 +19,6 @@ MESSAGES = {
 }
 
 ADMIN_CONFIG = {
-    'admin_ids': [854870356],
+    'admin_ids': [ADMIN_ID_TELEGRAM],
     'enable_admin_commands': True
 }
