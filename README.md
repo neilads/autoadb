@@ -60,4 +60,4 @@ Tools reg Instagram sử dụng Python và Android Debug Brige bằng cách so k
 
 **Tác giả:** Neil  
 **Ngôn ngữ:** Python  
-**Liên hệ:** [https://t.me/neiltopup](https://t.me/neiltopup)
+**Liên hệ:** [t.me/neiltopup](https://t.me/neiltopup)
